@@ -19,7 +19,7 @@ Then make sure you have your [Trade.gov API Key](https://api.trade.gov) handy.
 
 ## Getting Started
 
-	git clone git@github.com:loren/lambda-semantic-query-service.git
+	git clone git@github.com:GovWizely/lambda-semantic-query-service.git
 	cd lambda-semantic-query-service
 	mkvirtualenv -r requirements.txt lambda-semantic-query-service
 
