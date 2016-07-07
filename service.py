@@ -8,7 +8,7 @@ from retrying import retry
 
 API_KEY='YOUR_API_TRADE_GOV_KEY_HERE'
 
-LABEL_DICT = {'World Regions': 'world_region', 'Countries' : 'country'}
+LABEL_DICT = {'World Regions': 'world_region', 'Countries' : 'country_name'}
 BASE_URL = "https://api.trade.gov/ita_taxonomies/search"
 
 @retry(stop_max_attempt_number=5,wait_fixed=3000)
