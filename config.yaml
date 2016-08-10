@@ -2,7 +2,7 @@ region: us-east-1
 
 function_name: semantic_query_service
 handler: service.handler
-role: lambda
+role: lambda_api
 description: AWS Lambda mapping a search query into controlled vocabulary filters and a fulltext query using ITA Taxonomy API
 
 # if access key and secret are left blank, boto will use the credentials
