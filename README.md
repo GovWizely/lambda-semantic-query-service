@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/GovWizely/lambda-semantic-query-service.svg?style=svg)](https://circleci.com/gh/GovWizely/lambda-semantic-query-service)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3bae281b0bf0a812206e/maintainability)](https://codeclimate.com/github/GovWizely/lambda-semantic-query-service/maintainability)
 
 # Semantic Query Service
 
