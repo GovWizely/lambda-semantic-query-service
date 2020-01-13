@@ -3,8 +3,7 @@ import vcr
 from service import get_taxonomies_api_url, query_filter_mapping
 
 
-def test_get_taxonomies_api_url(monkeypatch):
-    monkeypatch.setenv("TAXONOMIES_API_KEY", "mykey")
+def test_get_taxonomies_api_url():
     params_dict = {
         'q': 'the United States and pacific rim contracting in oceania malasia pacifico',
         'api_key': 'mykey',
