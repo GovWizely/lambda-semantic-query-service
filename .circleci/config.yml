@@ -1,0 +1,64 @@
+version: 2.1
+
+defaults: &defaults
+  parameters:
+    build_image:
+      type: string
+      default: circleci/python:3.7.3
+    python_version:
+      type: string
+      default: python3.7
+
+cache_key: &cache_key
+    v1-<< parameters.python_version >>-<< parameters.build_image >>-{{ checksum "requirements.txt" }}-{{ checksum "requirements-test.txt" }}
+
+docker_defaults: &docker_defaults
+  << parameters.build_image >>
+
+jobs:
+  test:
+    <<: *defaults
+    docker:
+      - image: *docker_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - *cache_key
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install --upgrade pip
+            pip install -r requirements-test.txt
+      - save_cache:
+          paths:
+            - ./venv
+          key: *cache_key
+      - run: mkdir -p /tmp/test-results && mkdir -p /tmp/test-artifacts
+      - run:
+          name: run tests
+          command: |
+            . venv/bin/activate
+            flake8
+            python -m pytest --disable-pytest-warnings --cov=. --cov-report=html:/tmp/test-artifacts/coverage --cov-fail-under=97 --junitxml=/tmp/test-results/pytest.xml
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-artifacts
+
+workflows:
+  version: 2.1
+
+  py37:
+    jobs:
+      - test:
+          name: test_py37
+
+  py38:
+    jobs:
+      - test:
+          name: test_py38
+          build_image: circleci/python:3.8.1
+          python_version: python3.8

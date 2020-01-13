@@ -1,3 +1,2 @@
-python-lambda
-retrying
-requests
+python-lambda==3.2.6
+requests==2.22.0
