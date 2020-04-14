@@ -1,5 +1,6 @@
 [![CircleCI](https://circleci.com/gh/GovWizely/lambda-semantic-query-service.svg?style=svg)](https://circleci.com/gh/GovWizely/lambda-semantic-query-service)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3bae281b0bf0a812206e/maintainability)](https://codeclimate.com/github/GovWizely/lambda-semantic-query-service/maintainability)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=GovWizely/lambda-semantic-query-service)](https://dependabot.com)
 
 # Semantic Query Service
 
